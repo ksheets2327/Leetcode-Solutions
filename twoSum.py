@@ -1,4 +1,5 @@
 class Solution(object):
+    # Brute Force
     def twoSum(self, nums, target):
         """
         :type nums: List[int]
@@ -13,4 +14,20 @@ class Solution(object):
                     continue
                 if nums[i] + nums[j] == target:
                     return [i, j]
+
+# Hash Map
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        seen = {}
+
+        for index, num in enumerate(nums):
+            complement = target - num
+            if complement in seen:
+                return [seen[complement], index]
+            seen[num] = index
+                
         
